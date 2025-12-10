@@ -1,0 +1,18 @@
+// build.gradle file
+
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral() // Tells Gradle where to download the files from
+}
+
+// ▼ THIS IS THE SECTION YOU ARE LOOKING FOR ▼
+dependencies {
+    // Standard library needed for your source code
+    implementation 'com.google.guava:guava:32.1.2-jre'
+
+    // Library needed only for running tests
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
+}
