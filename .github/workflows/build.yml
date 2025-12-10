@@ -27,6 +27,11 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
 
+      - name: Setup JFrog CLI
+        uses: jfrog/setup-jfrog-cli@v4
+        env:
+          JF_URL: https://supportfly.jfrog.io
+
       - name: Setup JFrog Fly
         uses: jfrog/fly-action@v1
         with:
