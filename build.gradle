@@ -12,7 +12,10 @@ dependencies {
     implementation 'com.google.guava:guava:32.1.2-jre'
 
     // Library needed only for running tests
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+    
+    // Required for Gradle 9.x to run JUnit 5 tests
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 test {
