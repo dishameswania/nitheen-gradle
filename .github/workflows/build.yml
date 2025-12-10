@@ -20,6 +20,8 @@ jobs:
 
       - name: Setup JFrog Fly
         uses: jfrog/fly-action@v1
+        with:
+          url: https://supportfly.jfrog.io
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
@@ -35,3 +37,4 @@ jobs:
 
       - name: Run tests
         run: gradle test
+
