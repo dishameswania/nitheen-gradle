@@ -49,10 +49,11 @@ publishing {
     repositories {
         maven {
             name = 'JFrogFly'
-            url = uri(System.getenv('JFROG_FLY_MAVEN_URL') ?: 'https://supportfly.jfrog.io/artifactory/default-maven-virtual')
+            // Use local repository for publishing (virtual repos are read-only)
+            url = uri(System.getenv('JFROG_FLY_DEPLOY_REPO_URL') ?: 'https://supportfly.jfrog.io/artifactory/default-maven-local')
             credentials {
-                username = System.getenv('JFROG_FLY_USER') ?: ''
-                password = System.getenv('JFROG_FLY_TOKEN') ?: ''
+                username = System.getenv('JFROG_FLY_USERNAME') ?: ''
+                password = System.getenv('JFROG_FLY_ACCESS_TOKEN') ?: ''
             }
         }
     }

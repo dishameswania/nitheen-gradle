@@ -35,12 +35,16 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x gradlew
 
+      - name: Configure Gradle for JFrog Fly
+        run: |
+          jf gradle-config --repo-resolve default-maven-virtual --repo-deploy default-maven-local
+
       - name: Build with Gradle
-        run: ./gradlew build
+        run: jf gradle build
 
       - name: Run tests
         run: ./gradlew test
 
       - name: Publish to JFrog Fly
-        run: ./gradlew publish
+        run: jf gradle publish
 
