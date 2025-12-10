@@ -1,13 +1,5 @@
 // build.gradle file
 
-plugins {
-    id 'java'
-}
-
-repositories {
-    mavenCentral() // Tells Gradle where to download the files from
-}
-
 // ▼ THIS IS THE SECTION YOU ARE LOOKING FOR ▼
 dependencies {
     // Standard library needed for your source code
