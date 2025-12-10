@@ -38,3 +38,6 @@ jobs:
       - name: Run tests
         run: gradle test
 
+      - name: Publish
+        run: ./gradlew publish
+
