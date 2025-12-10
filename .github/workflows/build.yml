@@ -33,11 +33,11 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
 
       - name: Build with Gradle
-        run: gradle build
+        run: ./gradlew build
 
       - name: Run tests
         run: gradle test
 
       - name: Publish
-        run: gradle publish
+        run: ./gradlew publish
 
