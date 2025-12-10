@@ -1,4 +1,10 @@
-// build.gradle file
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
 
 // ▼ THIS IS THE SECTION YOU ARE LOOKING FOR ▼
 dependencies {
@@ -7,4 +13,8 @@ dependencies {
 
     // Library needed only for running tests
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
+}
+
+test {
+    useJUnitPlatform()
 }
