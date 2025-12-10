@@ -1,9 +1,21 @@
 plugins {
     id 'java'
+    id 'maven-publish'
 }
 
+group = 'com.example'
+version = '1.0.0'
+
 repositories {
-    mavenCentral()
+    maven {
+        name = 'JFrogFly'
+        url = uri(System.getenv('JFROG_FLY_MAVEN_URL') ?: 'https://supportfly.jfrog.io/artifactory/default-maven-virtual')
+        credentials {
+            username = System.getenv('JFROG_FLY_USER') ?: ''
+            password = System.getenv('JFROG_FLY_TOKEN') ?: ''
+        }
+    }
+    mavenCentral() // fallback for local development
 }
 
 // ▼ THIS IS THE SECTION YOU ARE LOOKING FOR ▼
@@ -20,4 +32,28 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            
+            pom {
+                name = 'My Library'
+                description = 'A sample library published via JFrog Fly'
+            }
+        }
+    }
+    
+    repositories {
+        maven {
+            name = 'JFrogFly'
+            url = uri(System.getenv('JFROG_FLY_MAVEN_URL') ?: 'https://supportfly.jfrog.io/artifactory/default-maven-virtual')
+            credentials {
+                username = System.getenv('JFROG_FLY_USER') ?: ''
+                password = System.getenv('JFROG_FLY_TOKEN') ?: ''
+            }
+        }
+    }
 }
