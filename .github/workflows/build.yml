@@ -39,5 +39,5 @@ jobs:
         run: gradle test
 
       - name: Publish
-        run: ./gradlew publish
+        run: gradle publish
 
